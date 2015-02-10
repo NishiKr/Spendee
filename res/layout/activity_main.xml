@@ -59,12 +59,12 @@
     </EditText>
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/undobutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/amountEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="@string/addbutton" />
+        android:layout_marginTop="49dp"
+        android:text="@string/undobutton" />
 
 </RelativeLayout>

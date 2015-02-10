@@ -10,6 +10,7 @@ public class PurchaseHistory implements Serializable{
 	 */
 	private static final long serialVersionUID = -3196082723546529062L;
 	private Stack<MonthlySum> purchases = new Stack<MonthlySum>();
+	Calendar c;
 	
 	PurchaseHistory() {
 		purchases.push(new MonthlySum());
@@ -25,7 +26,8 @@ public class PurchaseHistory implements Serializable{
 	
 	public void add(float amount) {
 		//if the year and month don't match then start a new monthly sum
-		if(getCurrentSum().getMonth() != Calendar.MONTH || getCurrentSum().getYear() != Calendar.YEAR) {
+		c = Calendar.getInstance();
+		if(getCurrentSum().getMonth() != c.get(Calendar.MONTH) || getCurrentSum().getYear() != c.get(Calendar.YEAR)) {
 			MonthlySum currentSum = new MonthlySum();
 			currentSum.add(amount);
 			purchases.push(currentSum);

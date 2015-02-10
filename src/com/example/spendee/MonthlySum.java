@@ -8,9 +8,16 @@ public class MonthlySum implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -6396729886588557034L;
-	private int month = Calendar.MONTH;
-	private int year = Calendar.YEAR;
+	Calendar c;
+	private int month;
+	private int year;
 	private float amount = 0;
+	
+	MonthlySum() {
+		c = Calendar.getInstance();
+		month = c.get(Calendar.MONTH);
+		year = c.get(Calendar.YEAR);
+	}
 	
 	public int getMonth () {
 		return month;
