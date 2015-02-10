@@ -25,7 +25,7 @@ public class PurchaseHistory implements Serializable{
 	
 	public void add(float amount) {
 		//if the year and month don't match then start a new monthly sum
-		if(getCurrentSum().getMonth() != Calendar.MONTH && getCurrentSum().getYear() != Calendar.YEAR) {
+		if(getCurrentSum().getMonth() != Calendar.MONTH || getCurrentSum().getYear() != Calendar.YEAR) {
 			MonthlySum currentSum = new MonthlySum();
 			currentSum.add(amount);
 			purchases.push(currentSum);
