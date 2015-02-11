@@ -10,17 +10,17 @@ public class MonthlySum implements Serializable{
 	 */
 	private static final long serialVersionUID = -6396729886588557034L;
 	Calendar c;
-	private int month;
+	private String month;
 	private int year;
 	private float amount = 0;
 	
 	MonthlySum() {
 		c = Calendar.getInstance();
-		month = c.get(Calendar.MONTH);
+		month = c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US);
 		year = c.get(Calendar.YEAR);
 	}
 	
-	public int getMonth () {
+	public String getMonth () {
 		return month;
 	}
 	
@@ -35,6 +35,6 @@ public class MonthlySum implements Serializable{
 		amount += 0.0;
 	}
 	public String toString() {
-		return String.format(Locale.CANADA, "%s %.2f" ,c.getDisplayName(getMonth(), Calendar.LONG, Locale.CANADA), getAmount());
+		return String.format(Locale.US, "%s: %.2f",getMonth(), getAmount());
 	}
 }

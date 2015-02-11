@@ -2,7 +2,10 @@ package com.example.spendee;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Stack;
+
+import android.util.Log;
 
 public class PurchaseHistory implements Serializable{
 	/**
@@ -26,9 +29,14 @@ public class PurchaseHistory implements Serializable{
 	}
 	
 	public void add(float amount) {
-		//if the year and month don't match then start a new monthly sum
 		c = Calendar.getInstance();
-		if(getCurrentSum().getMonth() != c.get(Calendar.MONTH) || getCurrentSum().getYear() != c.get(Calendar.YEAR)) {
+		//if the year and month don't match then start a new monthly sum
+		String month = c.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US);
+		int year = c.get(Calendar.YEAR);
+		
+		Log.v("Current date:", month + year);
+		
+		if(getCurrentSum().getMonth() != month || getCurrentSum().getYear() != year) {
 			MonthlySum currentSum = new MonthlySum();
 			currentSum.add(amount);
 			purchases.push(currentSum);
