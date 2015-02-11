@@ -1,8 +1,7 @@
 package com.example.spendee;
 
-import java.util.Stack;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -19,7 +18,6 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	
 	PurchaseHistory purchaseHistory = new PurchaseHistory();
-	Stack<Float> undoStack = new Stack<Float>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +45,10 @@ public class MainActivity extends Activity {
 					float floatAmount = Float.parseFloat(amount);
 					
 					purchaseHistory.add(floatAmount);
-					undoStack.push(floatAmount);
 					
 					dollarTextView.setText(String.format("%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
 					amountText.setText("");
 					io.save(purchaseHistory);	
-					Toast.makeText(getBaseContext(), purchaseHistory.getCurrentSum().toString(), Toast.LENGTH_SHORT).show();
-
 				}
 				catch (NumberFormatException e) {
 					Toast.makeText(getBaseContext(), "Invalid Entry", Toast.LENGTH_SHORT).show();
@@ -93,9 +88,14 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.History) {
+    		
+    		Intent intent = new Intent(MainActivity.this, History.class);
+    		startActivity(intent);
             return true;
         }
+        
         return super.onOptionsItemSelected(item);
     }
+
 }
