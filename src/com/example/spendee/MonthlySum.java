@@ -2,6 +2,7 @@ package com.example.spendee;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class MonthlySum implements Serializable{
 	/**
@@ -31,5 +32,9 @@ public class MonthlySum implements Serializable{
 	}
 	public void add(float theAmount) {
 		amount += theAmount;
+		amount += 0.0;
+	}
+	public String toString() {
+		return String.format(Locale.CANADA, "%s %.2f" ,c.getDisplayName(getMonth(), Calendar.LONG, Locale.CANADA), getAmount());
 	}
 }

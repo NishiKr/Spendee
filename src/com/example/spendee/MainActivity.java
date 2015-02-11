@@ -51,7 +51,9 @@ public class MainActivity extends Activity {
 					
 					dollarTextView.setText(String.format("%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
 					amountText.setText("");
-					io.save(purchaseHistory);				
+					io.save(purchaseHistory);	
+					Toast.makeText(getBaseContext(), purchaseHistory.getCurrentSum().toString(), Toast.LENGTH_SHORT).show();
+
 				}
 				catch (NumberFormatException e) {
 					Toast.makeText(getBaseContext(), "Invalid Entry", Toast.LENGTH_SHORT).show();
@@ -66,16 +68,6 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-//				if(undoStack.empty()) {
-//					Toast.makeText(getBaseContext(), "Nothing to undo", Toast.LENGTH_SHORT).show();
-//				}
-//				else {
-//					float amount = undoStack.pop();
-//					purchaseHistory.add(amount * -1);
-//					dollarTextView.setText(String.format("%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
-//					io.save(purchaseHistory);				
-//			
-//				}
 				if(!purchaseHistory.undo()) {
 					Toast.makeText(getBaseContext(), "Nothing to undo", Toast.LENGTH_SHORT).show();
 				}

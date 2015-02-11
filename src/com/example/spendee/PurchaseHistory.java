@@ -33,7 +33,9 @@ public class PurchaseHistory implements Serializable{
 			currentSum.add(amount);
 			purchases.push(currentSum);
 			//now clear undo stack because it's a new month
-			undoStack.empty();
+			//then add this months first purchase
+			undoStack = new Stack<Float>();
+			undoStack.push(amount);
 		}
 		//else add it to the current monthly sum
 		else {
@@ -51,4 +53,5 @@ public class PurchaseHistory implements Serializable{
 			return false;
 		}
 	}
+	
 }
