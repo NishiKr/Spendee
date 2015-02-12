@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         purchaseHistory = io.load();
         
         //set initial dollar value
-		dollarTextView.setText(String.format("%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
+		dollarTextView.setText(String.format("$%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
         
         amountText.setOnEditorActionListener(new OnEditorActionListener() {
 			

@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:text="@string/youspent"
-        android:textSize="30sp" />
+        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/textView1"
@@ -34,16 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:textSize="40sp" />
-
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/dollarTextView"
-        android:text="@string/dollars"
-        android:textSize="20sp" />
+        android:textSize="50sp" />
 
     <EditText
         android:id="@+id/amountEditText"
@@ -66,5 +57,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="49dp"
         android:text="@string/undobutton" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dollarTextView"
+        android:layout_centerHorizontal="true"
+        android:text="@string/dollars"
+        android:textSize="50sp" />
 
 </RelativeLayout>

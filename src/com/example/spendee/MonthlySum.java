@@ -35,6 +35,6 @@ public class MonthlySum implements Serializable{
 		amount += 0.0;
 	}
 	public String toString() {
-		return String.format(Locale.US, "%s: %.2f",getMonth(), getAmount());
+		return String.format(Locale.US, "%s\t\t\t$%.2f",getMonth(), getAmount());
 	}
 }
