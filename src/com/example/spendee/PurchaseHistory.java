@@ -36,7 +36,12 @@ public class PurchaseHistory implements Serializable{
 		
 		Log.v("Current date:", month + year);
 		
-		if(getCurrentSum().getMonth() != month || getCurrentSum().getYear() != year) {
+		if(!getCurrentSum().getMonth().equals(month) || getCurrentSum().getYear() != year) {
+//			Log.v("Sum month", getCurrentSum().getMonth());
+//			Log.v("Sum year", String.valueOf((getCurrentSum().getYear())));
+//			Log.v("Actual month", month);
+//			Log.v("Actual year", String.valueOf(year));
+
 			MonthlySum currentSum = new MonthlySum();
 			currentSum.add(amount);
 			purchases.push(currentSum);
