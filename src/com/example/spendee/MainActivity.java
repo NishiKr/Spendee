@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 					
 					purchaseHistory.add(floatAmount);
 					
-					dollarTextView.setText(String.format("%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
+					dollarTextView.setText(String.format("$%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
 					amountText.setText("");
 					io.save(purchaseHistory);	
 				}
