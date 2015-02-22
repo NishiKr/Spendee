@@ -57,13 +57,14 @@ public class PurchaseHistory implements Serializable{
 		}
 	}
 	
-	public boolean undo() {
+	public float undo() {
 		if(!undoStack.isEmpty()) {
-			getCurrentSum().add(undoStack.pop()* -1);
-			return true;
+			float amount = undoStack.pop()*-1;
+			getCurrentSum().add(amount);
+			return amount;
 		}
 		else {
-			return false;
+			return 0;
 		}
 	}
 	

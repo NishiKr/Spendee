@@ -63,11 +63,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(!purchaseHistory.undo()) {
+				float amount = purchaseHistory.undo();
+				if(amount == 0) {
 					Toast.makeText(getBaseContext(), "Nothing to undo", Toast.LENGTH_SHORT).show();
 				}
 				else {
-					dollarTextView.setText(String.format("%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
+					dollarTextView.setText(String.format("$%.2f" ,purchaseHistory.getCurrentSum().getAmount()));
+					Toast.makeText(getBaseContext(), String.format("Undid $%.2f", amount*-1), Toast.LENGTH_SHORT).show();
 					io.save(purchaseHistory);
 				}
 			}
